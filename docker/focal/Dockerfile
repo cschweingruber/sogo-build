@@ -17,10 +17,10 @@ RUN apt update && \
 #RUN dpkg-scanpackages /vendor | gzip > /vendor/Packages.gz
 
 RUN echo "deb [trusted=yes] file:/// vendor/" > /etc/apt/sources.list.d/sogo.list
-
+RUN mkdir -p /usr/share/doc/sogo/ ; touch /usr/share/doc/sogo/dummy.sh
 RUN apt update && \
     apt-get install -y --no-install-recommends gettext-base sogo sope4.9-gdl1-postgresql sope4.9-gdl1-mysql memcached tzdata && \
-    apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+    apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /vendor/*
 
 # Install Apache, SOGo from repository
 #RUN echo "deb http://www.axis.cz/linux/debian xenial sogo-v4" > /etc/apt/sources.list.d/sogo.axis.cz.list && \
