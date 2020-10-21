@@ -3,7 +3,8 @@ LABEL maintainer="c.schweingruber@catatec.ch"
 COPY build.sh .env ./
 RUN ./build.sh
 
-FROM        phusion/baseimage
+FROM focal-1.0.0-alpha1-amd64
+
 LABEL maintainer="c.schweingruber@catatec.ch"
 # based on https://github.com/JensErat/docker-sogo
 # repo from http://www.axis.cz/linux/debian/dists
