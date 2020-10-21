@@ -86,7 +86,7 @@ dpkg-checkbuilddeps && dpkg-buildpackage -b
 
 cd "$PACKAGES_DIR"
 
-dpkg-scanpackages /data/vendor | gzip > /data/vendor/Packages.gz
+dpkg-scanpackages /vendor | gzip > /vendor/Packages.gz
 
 # Install the built packages
 dpkg -i sope4.9-gdl1-mysql_4.9.r1664_amd64.deb
