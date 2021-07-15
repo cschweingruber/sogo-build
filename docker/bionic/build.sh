@@ -73,7 +73,7 @@ dpkg -i libsope*.deb
 # Checkout the SOGo repository with the given tag
 git clone --depth 1 --branch "${SOGO_GIT_TAG}" $REPOSITORY_SOGO
 cd sogo
-
+sed -i 's:/usr/bin/python:/usr/bin/python3:' SoObjects/SOGo/gen-saml2-exceptions.py
 cp -a packaging/debian debian
 
 dch --newversion "$VERSION_TO_BUILD" "Automated build for version $VERSION_TO_BUILD"

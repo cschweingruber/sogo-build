@@ -47,8 +47,8 @@ apt-get update && apt-get install -y $PACKAGES_TO_INSTALL
 # Download and install libwbxml2 and libwbxml2-dev
 #wget -c https://packages.inverse.ca/SOGo/nightly/5/debian/pool/stretch/w/wbxml2/libwbxml2-dev_0.11.6-1_amd64.deb
 #wget -c https://packages.inverse.ca/SOGo/nightly/5/debian/pool/stretch/w/wbxml2/libwbxml2-0_0.11.6-1_amd64.deb
-wget --no-check-certificate -qc https://packages.inverse.ca/SOGo/nightly/5/ubuntu/pool/bionic/w/wbxml2/libwbxml2-dev_0.11.6-1_amd64.deb
-wget --no-check-certificate -qc https://packages.inverse.ca/SOGo/nightly/5/ubuntu/pool/bionic/w/wbxml2/libwbxml2-0_0.11.6-1_amd64.deb
+wget --no-check-certificate -qc https://packages.inverse.ca/SOGo/nightly/5/ubuntu/pool/focal/w/wbxml2/libwbxml2-dev_0.11.6-1_amd64.deb
+wget --no-check-certificate -qc https://packages.inverse.ca/SOGo/nightly/5/ubuntu/pool/focal/w/wbxml2/libwbxml2-0_0.11.6-1_amd64.deb
 
 dpkg -i libwbxml2-0_0.11.6-1_amd64.deb libwbxml2-dev_0.11.6-1_amd64.deb
 
@@ -73,7 +73,7 @@ dpkg -i libsope*.deb
 # Checkout the SOGo repository with the given tag
 git clone --depth 1 --branch "${SOGO_GIT_TAG}" $REPOSITORY_SOGO
 cd sogo
-
+sed -i 's:/usr/bin/python:/usr/bin/python3:' SoObjects/SOGo/gen-saml2-exceptions.py
 cp -a packaging/debian debian
 
 dch --newversion "$VERSION_TO_BUILD" "Automated build for version $VERSION_TO_BUILD"
